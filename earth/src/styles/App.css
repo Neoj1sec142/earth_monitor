@@ -1,0 +1,28 @@
+/* HTML */
+html{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Main */
+div.card.l-1{
+    left: 0;
+    /* width: 35%; */
+}
+div.card.l-2{
+    left: 0;
+    /* width: 35%; */
+}
+div.card.l-3{
+    left: 0;
+    /* width: 35%; */
+}
+div.card.r-M{
+    height: 100%;
+}
+div.card.r-b{}
+/* Nav */
+/* Blog */
+/* Messager */
