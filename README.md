@@ -12,7 +12,6 @@
 ***       
 #### Technologies Used:
     - React
-    - Typescript
     - Bootstrap
 #### Resource & Credit Links:
 [Email](mharmondev1503@gmail.com)      
