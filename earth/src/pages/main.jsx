@@ -3,13 +3,15 @@ import React, {useState, useEffect} from 'react'
 
 const Main = () => {
     const [data, setData] = useState()
-    useEffect(() => {
+    // useEffect(() => {
         const getData = async () => {
-            const data = await axios.get("https://api.hge.earth/api/co2/2021")
-            setData(data)
+            await axios.get("https://api.hge.earth/api/co2/", {mode: 'CORS'})
+            .then(res => res.json())
+            .then(data => setData(data))
+            .catch(e => console.log(e, 'ERROR'))
         }
         getData()
-    },[])
+    // },[])
     console.log(data)
     return(
         <div className="container-fluid">
