@@ -87,4 +87,22 @@ export const update_account = (id, accountDetails) => async dispatch => {
         })
     }
 }
-export const delete_account = () => async dispatch => {}
+
+export const delete_account = (id) => async dispatch => {
+    try{
+        const res = await RemoveAccount(id)
+        if(res.status === 204 || res.statusText === 'OK'){
+            dispatch({
+                type: DESTROY_ACCOUNT_SUCCESS
+            })
+        }else{
+            dispatch({
+                type: DESTROY_ACCOUNT_FAIL
+            })
+        }
+    }catch(err){
+        dispatch({
+            type: DESTROY_ACCOUNT_FAIL
+        })
+    }
+}

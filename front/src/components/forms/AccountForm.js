@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux';
+import {upload_account} from '../../store/actions/account.js'
+import { NavigateTimer } from '../../utils/utils.js';
 
-const AccountForm = () => {
+const AccountForm = ({upload_account}) => {
     const [formData, setFormData] = useState({title: '', description: '', balance: 0.0})
     const {title, description, balance} = formData;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
+    
     const onSubmit = e => {
         e.preventDefault()
-
+        upload_account(formData)
+        NavigateTimer(5, '')
     }
     return (
         <div className='container-fluid'>
@@ -23,4 +28,4 @@ const AccountForm = () => {
     )
 }
 
-export default AccountForm
+export default connect(null, {upload_account})(AccountForm)
