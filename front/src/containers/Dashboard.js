@@ -1,32 +1,35 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { connect } from 'react-redux'
 import { load_accounts } from '../store/actions/account'
 import { load_transactions } from '../store/actions/transaction'
 import TransactionCard from '../components/TransactionCard'
 import AccountCard from '../components/AccountCard'
+import { addAccountTotal, addAllAccountsTotal } from '../utils/utils'
 
 const Dashboard = ({
   load_accounts, load_transactions, 
   accounts, transactions
 }) => {
-
+  const [cash, setCash] = useState(0.0)
+  useEffect(() => { load_accounts() },[])
+  useEffect(() => { load_transactions() },[])
   useEffect(() => {
-    load_accounts()
-  },[])
-
-  useEffect(() => {
-    load_transactions()
-  },[])
-
-  
+    if(accounts.length){
+      const res = addAllAccountsTotal(accounts)
+      setCash(res)
+    }
+  },[accounts, transactions])
 
   if(accounts && transactions){
     return (
       <div className='container-fluid text-center'>
         <div className='card m-3 p-2'>
           <h1>Dashboard</h1>
-          <hr className='divider sq'/>
+        <div className='row m-3 p-2'>
+          <h5 className='card-footer'>Accumilated Wealth: ${cash === 0.0 ? 0.00 : cash}</h5>
         </div>
+        </div>
+          <hr className='divider sq'/>
         <div className='card m-3'>
         <div className='row'>
           <div className='col'>
@@ -48,6 +51,7 @@ const Dashboard = ({
             </section>
           </div>
         </div>
+        
         </div>
       </div>
     )
