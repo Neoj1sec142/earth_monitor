@@ -10,7 +10,7 @@ const AccountForm = ({upload_account}) => {
     const onSubmit = e => {
         e.preventDefault()
         upload_account(formData)
-        NavigateTimer(5, '')
+        // NavigateTimer(5, '')
     }
     return (
         <div className='container-fluid'>

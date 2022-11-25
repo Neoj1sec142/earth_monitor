@@ -14,3 +14,18 @@ export const NavigateTimer = (time, path) => {
         navigate(`/${path}`)
     }
 }
+
+
+export const addAccountTotal = (account, newTransaction) => {
+    let total = parseFloat(account.balance);
+    const amt = parseFloat(newTransaction.amount)
+    if(newTransaction.withdrawl){ total -= amt 
+    }else{ total += amt }
+    return total
+}
+
+
+
+export const addAllAccountsTotal = (account) => {
+    
+}

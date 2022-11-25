@@ -39,7 +39,7 @@ const Navbar = () => {
                     <i className='fas fa-sign-in'></i>New Transaction</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/dashboard">
+                <a className="nav-link" href="/dash">
                     <i className='fas fa-sign-in'></i>Accounts & Transactions</a>
             </li>
             {/* <li className="nav-item">
