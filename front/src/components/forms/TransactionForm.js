@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { upload_account } from '../../store/actions/account';
 import { connect } from 'react-redux';
-import { NavigateTimer } from '../../utils/utils';
+
 
 const AccountForm = ({upload_account}) => {
     const [formData, setFormData] = useState({location: '', description:'', withdrawl: false, amount: 0.0})
@@ -9,8 +9,8 @@ const AccountForm = ({upload_account}) => {
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
     const onSubmit = e => {
         e.preventDefault()
-        upload_account(formData)
-        // NavigateTimer(5, '')
+        // upload_account(formData)
+        
     }
     return (
         <div className='container-fluid'>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {upload_account} from '../../store/actions/account.js'
-import { NavigateTimer } from '../../utils/utils.js';
+
 
 const AccountForm = ({upload_account}) => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({title: '', description: '', balance: 0.0})
     const {title, description, balance} = formData;
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
@@ -11,7 +13,9 @@ const AccountForm = ({upload_account}) => {
     const onSubmit = e => {
         e.preventDefault()
         upload_account(formData)
-        // NavigateTimer(5, '')
+        setTimeout(() => {
+            navigate('/dash')
+        }, 2000)
     }
     return (
         <div className='container-fluid'>

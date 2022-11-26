@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-
+import Alert from './Alert'
 import { connect } from 'react-redux';
 
 
@@ -76,7 +76,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-        {/* <Alert/> */}
+        <Alert/>
         </Fragment>
     )
 }

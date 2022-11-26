@@ -14,3 +14,19 @@
     color: black;
     text-decoration: none;
 }
+.alert {
+    width: 80%;
+    margin: 10%;
+    font-size: 1.1rem;
+    color: white;
+    height: 4rem;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    text-align:center;
+}
+.alert--success {
+    background-color: #28a745;
+}
+.alert--error {
+    background-color: #dc3545;
+}
